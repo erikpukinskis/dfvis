@@ -23,5 +23,7 @@ RUN apt-get install -y git
 RUN apt-get install -y build-essential
 RUN apt-get install -y libssl-dev
 RUN luarocks install turbo
+RUN apt-get install -y procps
 
-ENTRYPOINT luajit /server/main.lua
+WORKDIR /server
+ENTRYPOINT turbovisor main.lua

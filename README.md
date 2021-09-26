@@ -9,7 +9,7 @@ docker image build --progress=plain -t turbo ./df-turbo
 Start the server:
 
 ```
-run -v $(pwd)/server:/server -p 3333:3333 --name turbo turbo
+docker run -v $(pwd)/server:/server -p 3333:3333 --env PORT=3333 --name turbo turbo
 ```
 
 Get a shell:
