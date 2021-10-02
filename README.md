@@ -23,3 +23,7 @@ Run Dwarf Fortress
 ```
 docker exec -it dfvis /df/df_linux/df
 ```
+
+## Screenshots
+
+![Screencast of running the steps above and having Dwarf Fortress start](media/container-dwarves.gif)
