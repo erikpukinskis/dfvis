@@ -30,9 +30,14 @@ docker exec -it --privileged --env DFHACK_HEADLESS=1 dfvis /df/df_linux/dfhack
 ```
 (`die` to exit)
 
-Start Dwarf Fortress with the provided save:
+Erik's current command:
 ```
-docker exec -it --privileged --env DFHACK_HEADLESS=1 dfvis /df/df_linux/dfhack +load-save region1
+docker exec -it --privileged --env DFHACK_HEADLESS=1 dfvis /df/df_linux/dfhack +lua -f /server/daemon.lua
+```
+
+That doesn't work, but this does:
+```
+docker exec -it dfvis lua /server/daemon.lua
 ```
 
 ## Screenshots

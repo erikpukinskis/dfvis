@@ -23,13 +23,16 @@ RUN rm df_linux/libs/libstdc++.so.6
 ADD init.txt df_linux/data/init
 
 # Install dfvis
-
 WORKDIR /df
 ADD https://github.com/DFHack/dfhack/releases/download/0.47.05-r3/dfhack-0.47.05-r3-Linux-64bit-gcc-7.tar.bz2 .
 RUN tar -xf dfhack-0.47.05-r3-Linux-64bit-gcc-7.tar.bz2 --directory df_linux/
 ADD dfhack.init df_linux
 ADD save/region1 df_linux/data/save/region1
 
+# Install dependencies for daemon
+RUN luarocks install http
+
 WORKDIR /server
 ENTRYPOINT turbovisor main.lua
+
 # ENTRYPOINT /df/df_linux/dfhack
