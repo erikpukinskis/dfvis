@@ -26,8 +26,10 @@ ADD init.txt df_linux/data/init
 
 WORKDIR /df
 ADD https://github.com/DFHack/dfhack/releases/download/0.47.05-r3/dfhack-0.47.05-r3-Linux-64bit-gcc-7.tar.bz2 .
-RUN tar -xf dfhack-0.47.05-r3-Linux-64bit-gcc-7.tar.bz2 --one-top-level
-RUN cp -r dfhack-0.47.05-r3-Linux-64bit-gcc-7/* df_linux/
+RUN tar -xf dfhack-0.47.05-r3-Linux-64bit-gcc-7.tar.bz2 --directory df_linux/
+ADD dfhack.init df_linux
 
 WORKDIR /server
-ENTRYPOINT turbovisor main.lua
+# ENTRYPOINT turbovisor main.lua
+ENTRYPOINT /df/df_linux/dfhack
+

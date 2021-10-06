@@ -9,7 +9,7 @@ docker image build --progress=plain -t dfvis ./docker
 Start the server:
 
 ```
-docker run -v $(pwd)/server:/server -p 3333:3333 --env PORT=3333 --name dfvis -i -t dfvis
+docker run --volume $(pwd)/server:/server --publish 3333:3333 --env PORT=3333 --name dfvis --interactive --tty --privileged dfvis
 ```
 
 Kill the server with `ctrl`+c and then `docker rm dfvis` to remove the container.
@@ -17,11 +17,6 @@ Kill the server with `ctrl`+c and then `docker rm dfvis` to remove the container
 Get a shell:
 ```
 docker exec -it dfvis bash
-```
-
-Run Dwarf Fortress
-```
-docker exec -it dfvis /df/df_linux/df
 ```
 
 ## Screenshots
