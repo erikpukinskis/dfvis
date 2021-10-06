@@ -1,2 +1,4 @@
 .DS_Store
 dfhack
+docker/save/
+server/node_modules

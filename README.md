@@ -19,6 +19,22 @@ Get a shell:
 docker exec -it dfvis bash
 ```
 
+Start Dwarf Fortress:
+```
+docker exec -it dfvis /df/df_linux/df
+```
+
+Start headless DFHack console:
+```
+docker exec -it --privileged --env DFHACK_HEADLESS=1 dfvis /df/df_linux/dfhack
+```
+(`die` to exit)
+
+Start Dwarf Fortress with the provided save:
+```
+docker exec -it --privileged --env DFHACK_HEADLESS=1 dfvis /df/df_linux/dfhack +load-save region1
+```
+
 ## Screenshots
 
 ![Screencast of running the steps above and having Dwarf Fortress start](media/container-dwarves.gif)
