@@ -9,10 +9,10 @@ server.on("connection", (socket) => {
   });
   socket.on("data", (data) => {
     console.log("[server] Client said ", data.toString());
-    socket.write("pong!");
+    socket.write("pong!\n\r");
     socket.end();
   });
-  socket.write("hello?");
+  socket.write("hello?\n\r");
 });
 
 server.on("error", (err) => {

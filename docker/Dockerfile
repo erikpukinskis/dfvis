@@ -30,9 +30,11 @@ ADD dfhack.init df_linux
 ADD save/region1 df_linux/data/save/region1
 
 # Install dependencies for daemon
+WORKDIR /df
 RUN luarocks install http
+ADD lua-http df_linux/hack/lua/lua-http
 
 WORKDIR /server
-ENTRYPOINT turbovisor main.lua
+ENTRYPOINT sleep infinity
 
 # ENTRYPOINT /df/df_linux/dfhack

@@ -1,7 +1,7 @@
-local websocket = require "http.websocket"
-local ws = websocket.new_from_uri("ws://docker.for.mac.host.internal:12345")
-assert(ws:connect())
-assert(ws:send("koo-eee!"))
-local data = assert(ws:receive())
-print("received " .. data)
-assert(ws:close())
+local socket = require "plugins.luasocket"
+
+local server = socket.tcp:connect('host.docker.internal',1337)
+print('socket is connected')
+print('recv' .. server:receive())
+server:send('ping?')
+print('recv' .. server:receive())
