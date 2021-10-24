@@ -1,13 +1,24 @@
-import { WebSocketServer } from "ws";
+import net from "net";
 
-const wss = new WebSocketServer({ port: 12345 });
+let server = net.createServer();
 
-wss.on("connection", function connection(ws) {
-  ws.on("message", function incoming(message) {
-    console.log("received: %s", message);
+server.on("connection", (socket) => {
+  console.log("[server] I am connected!");
+  socket.on("end", () => {
+    console.log("[server] Socket ended!");
   });
-
-  ws.send("something");
+  socket.on("data", (data) => {
+    console.log("[server] Client said ", data.toString());
+    socket.write("pong!");
+    socket.end();
+  });
+  socket.write("hello?");
 });
 
-console.log(`Started websocket server on ws://localhost:12345? Maybe?`);
+server.on("error", (err) => {
+  throw err;
+});
+
+server.listen(1337, "localhost", 200, () => {
+  console.log("opened server on", server.address());
+});
