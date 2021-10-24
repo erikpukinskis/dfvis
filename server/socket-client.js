@@ -3,7 +3,7 @@ import net from "net";
 const client = new net.Socket();
 client.connect(1337, "127.0.0.1", function () {
   console.log("[client] I am connected!");
-  client.write("ping!\n\r");
+  client.write("ping!");
 });
 
 client.on("data", function (data) {
