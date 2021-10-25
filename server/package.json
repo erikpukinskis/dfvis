@@ -1,7 +1,9 @@
 {
   "type": "module",
   "dependencies": {
-    "ws": "*",
-    "express": "*"
+    "module-library": "*",
+    "web-site": "*",
+    "browser-bridge": "*",
+    "web-element": "*"
   }
 }

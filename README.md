@@ -24,20 +24,14 @@ Start Dwarf Fortress:
 docker exec -it dfvis /df/df_linux/df
 ```
 
-Start headless DFHack console:
+Start the web app:
 ```
-docker exec -it --privileged --env DFHACK_HEADLESS=1 dfvis /df/df_linux/dfhack
+node server/server.cjs
 ```
-(`die` to exit)
 
-Erik's current command:
+Connect a DFHack instance:
 ```
 docker exec -it --privileged --env DFHACK_HEADLESS=1 dfvis /df/df_linux/dfhack +lua -f /server/daemon.lua
-```
-
-That doesn't work, but this does:
-```
-docker exec -it dfvis lua /server/daemon.lua
 ```
 
 ## Screenshots
