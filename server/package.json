@@ -1,9 +1,12 @@
 {
   "type": "module",
+  "main": "server.cjs",
   "dependencies": {
+    "basic-styles": "^0.57.0",
+    "browser-bridge": "^0.199.0",
     "module-library": "*",
-    "web-site": "*",
-    "browser-bridge": "*",
-    "web-element": "*"
+    "single-use-socket": "^0.31.0",
+    "web-element": "*",
+    "web-site": "*"
   }
 }
